@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Layout, Menu, Dropdown, Icon } from 'antd'
+import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
 
 import { HeaderWrapper, MenuWrapper } from './header.style'
@@ -50,7 +51,9 @@ class HeaderComponent extends Component {
 		      		<a><FontAwesome name="home" />Home</a>
 		      		<a><FontAwesome name="home" />Classified ads</a>
 		      		<a><FontAwesome name="bullhorn" />Advertise with us</a>
-		      		<a><FontAwesome name="calendar" />Register your event</a>
+		      		<Link to="/registerAccount">
+		            <FontAwesome name="calendar" />Register your event
+		          </Link>
 		      	</div>
 		      </div>
 		    </Header>
