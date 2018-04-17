@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, Radio, Row, Col, Layout, Menu, Dropdown, Icon, Select, message, AutoComplete } from 'antd'
+import { Form, Input, InputNumber, Button, Radio, Row, Col, Layout, Menu, Dropdown, Icon, Select, message, AutoComplete, Checkbox  } from 'antd'
+import { DatePicker, TimePicker } from 'antd';
 
 import RegisterAccountWrapper from './registerAccount.style'
 import HeaderComponent from '../Header/header'
 
+const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 const { Footer, Sider, Content } = Layout;
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 const RadioGroup = Radio.Group;
+const { TextArea } = Input;
+const InputGroup = Input.Group;
 
 class RegisterAccount extends Component {
 	state = {
@@ -61,6 +65,14 @@ class RegisterAccount extends Component {
 
 	handleFocus = () => {
 	  console.log('focus');
+	}
+
+	onDateChange = (date, dateString) => {
+	  console.log(date, dateString);
+	}
+
+	onTimeChange(time, timeString) {
+	  console.log(time, timeString);
 	}
 
 	render() {
@@ -338,9 +350,136 @@ class RegisterAccount extends Component {
 			      					</Col>
 			      				</Row>
 			      			</div>
+			      			<div className="sub-section">
+			      				<h3>Date & Time</h3>
+			      				<Row gutter={32}>
+			      					<Col span={12}>
+			      						<Row gutter={32}>
+			      							<Col span={12}>
+			      								<FormItem
+										        >
+				      								<DatePicker onChange={this.onDateChange} style={{ width: '100%' }} />
+				      							</FormItem>
+				      							<FormItem
+										        >
+				      								<TimePicker use12Hours format="h:mm a" onChange={this.onTimeChange} style={{ width: '100%' }} />
+				      							</FormItem>
+			      							</Col>
+			      							<Col span={12}>
+			      								<FormItem
+										        >
+				      								<DatePicker onChange={this.onDateChange} style={{ width: '100%' }} />
+				      							</FormItem>
+			      							</Col>
+			      							<Col span={24}>
+				      							<FormItem
+										        >
+				      								<TextArea rows={4} placeholder={'Describe any regular schdule, e.g. Saturday after Mother’s Day'} />
+				      							</FormItem>
+			      							</Col>
+			      						</Row>
+			      					</Col>
+			      				</Row>
+			      			</div>
+			      			<div className="sub-section">
+			      				<h3>Books Info</h3>
+			      				<Row gutter={32}>
+			      					<Col span={12}>
+			      						<Row gutter={32}>
+			      							<Col span={12}>
+			      								<div className="check-group">
+				      								<Checkbox>The books are sorted</Checkbox>		      							
+				      								<Checkbox>The books have been picked over</Checkbox>
+				      							</div>
+			      							</Col>
+			      							<Col span={12}>
+			      								<div className="check-group">
+				      								<Checkbox>Phone scanners allowed</Checkbox>
+				      								<Checkbox>Crates/boxes allowed</Checkbox>
+				      							</div>
+			      							</Col>
+			      							<Col span={24}>
+				      							<FormItem
+										        >
+				      								<TextArea rows={4} placeholder={'Please describe about your picked over books'} />
+				      							</FormItem>
+			      							</Col>
+			      							<Col span={12}>
+			      								<FormItem
+										        >
+				      								<InputNumber min={1} max={10} placeholder={'Size of sale'} style={{ width: '100%' }}/>
+				      							</FormItem>
+			      							</Col>
+			      							<Col span={16}>
+			      								<FormItem
+										        >
+				      								<InputGroup compact>
+											          <Input style={{ width: '45%', textAlign: 'center' }} placeholder="Price from" />
+											          <Input style={{ width: '10%', textAlign: 'center', borderLeft: 0, pointerEvents: 'none', backgroundColor: '#fff' }} placeholder="~" disabled />
+											          <Input style={{ width: '45%', textAlign: 'center', borderLeft: 0 }} placeholder="Price to" />
+											        </InputGroup>
+											      </FormItem>
+			      							</Col>
+			      							<Col span={12}>
+			      								<FormItem
+										        >
+										        	<Input placeholder="Donation"/>
+										        </FormItem>
+			      							</Col>
+			      							<Col span={12}>
+			      								<FormItem
+										        >
+										        	<Input placeholder="Hardcover"/>
+										        </FormItem>
+			      							</Col>
+			      						</Row>
+			      					</Col>
+			      				</Row>
+			      			</div>
+			      			<div className="sub-section">
+			      				<h3>Special Preview</h3>
+			      				<Row gutter={32}>
+			      					<Col span={12}>
+			      						<Row gutter={32}>
+			      							<Col span={12}>
+			      								<FormItem
+										        >
+				      								<DatePicker onChange={this.onDateChange} style={{ width: '100%' }} />
+				      							</FormItem>
+				      						</Col>
+				      						<Col span={12}>
+				      							<FormItem
+										        >
+										        	<Input placeholder="Preview fee"/>
+										        </FormItem>
+				      						</Col>
+				      						<Col span={12}>
+				      							<FormItem
+										        >
+				      								<TimePicker use12Hours format="h:mm a" onChange={this.onTimeChange} style={{ width: '100%' }} />
+				      							</FormItem>
+				      						</Col>
+				      						<Col span={12}>
+				      							<Checkbox>Friends only</Checkbox>	
+				      						</Col>
+			      						</Row>
+	      							</Col>
+			      				</Row>
+			      			</div>
+		      			</div>
+		      			<div className="form-section">
+		      				<h2>Additional Info</h2>
+		      				<Row gutter={32}>
+		      					<Col span={12}>
+		      						<FormItem
+							        >
+	      								<TextArea rows={4} placeholder={'Tell us any special events held at the same time as the sale'} />
+	      							</FormItem>
+		      					</Col>
+		      				</Row>
 		      			</div>
 				        <FormItem>
-				          <Button type="primary" htmlType="submit">Submit</Button>
+				          <Button type="primary" htmlType="submit">Register</Button>
 				        </FormItem>
 				      </Form>
 		      	</div>

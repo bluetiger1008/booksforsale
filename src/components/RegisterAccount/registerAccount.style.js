@@ -36,6 +36,14 @@ const RegisterAccountWrapper = styled.div`
 						margin-top: 12px;
 					}
 				}
+				.sub-section {
+					.check-group {
+						.ant-checkbox-wrapper {
+							margin-left: 0;
+							margin-bottom: 10px;
+						}
+					}
+				}
 			}
 		}
 	}

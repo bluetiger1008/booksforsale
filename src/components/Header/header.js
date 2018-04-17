@@ -48,7 +48,9 @@ class HeaderComponent extends Component {
 		      		</div>
 		      	</div>
 		      	<div className="nav">
-		      		<a><FontAwesome name="home" />Home</a>
+		      		<Link to="/">
+		      			<FontAwesome name="home" />Home
+		      		</Link>
 		      		<a><FontAwesome name="home" />Classified ads</a>
 		      		<a><FontAwesome name="bullhorn" />Advertise with us</a>
 		      		<Link to="/registerAccount">
