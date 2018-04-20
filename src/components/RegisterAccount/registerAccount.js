@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
-import { Form, Input, InputNumber, Button, Radio, Row, Col, Layout, Menu, Dropdown, Icon, Select, message, AutoComplete, Checkbox  } from 'antd'
+import { Form, Input, InputNumber, Button, Radio, Row, Col, Layout, Select, message, Checkbox  } from 'antd'
 import { DatePicker, TimePicker } from 'antd';
 
 import RegisterAccountWrapper from './registerAccount.style'
 import HeaderComponent from '../Header/header'
 
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
-const { Footer, Sider, Content } = Layout;
+const { Content } = Layout;
 const FormItem = Form.Item;
 const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
 const RadioGroup = Radio.Group;
 const { TextArea } = Input;
 const InputGroup = Input.Group;
@@ -76,66 +74,7 @@ class RegisterAccount extends Component {
 	}
 
 	render() {
-		const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
-
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
-    
     const { getFieldDecorator } = this.props.form;
-
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
-
-    const menu = (
-		  <Menu onClick={this.handleMenuClick}>
-		    <Menu.Item key="1">1st menu item</Menu.Item>
-		    <Menu.Item key="2">2nd menu item</Menu.Item>
-		    <Menu.Item key="3">3rd item</Menu.Item>
-		  </Menu>
-		);
-
-    const props = {
-		  name: 'file',
-		  action: '//jsonplaceholder.typicode.com/posts/',
-		  headers: {
-		    authorization: 'authorization-text',
-		  },
-		  onChange(info) {
-		    if (info.file.status !== 'uploading') {
-		      console.log(info.file, info.fileList);
-		    }
-		    if (info.file.status === 'done') {
-		      message.success(`${info.file.name} file uploaded successfully`);
-		    } else if (info.file.status === 'error') {
-		      message.error(`${info.file.name} file upload failed.`);
-		    }
-		  },
-		};
 
 		return (
 			<RegisterAccountWrapper>

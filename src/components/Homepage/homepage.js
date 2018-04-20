@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { Row, Col, Layout, Menu, Dropdown, Icon } from 'antd'
+import { Row, Col, Layout } from 'antd'
 import FontAwesome from 'react-fontawesome'
 import ReactHighmaps from 'react-highcharts/ReactHighmaps.src'
 
 import maps from '../../assets/mapdata/europe'
 import HeaderComponent from '../Header/header'
 import HomepageWrapper from './homepage.style'
-import avatar from '../../assets/images/avatar.png'
 
-const { Footer, Sider, Content } = Layout;
+const { Footer, Content } = Layout;
 
 var data = [
     ['us-ma', 0],

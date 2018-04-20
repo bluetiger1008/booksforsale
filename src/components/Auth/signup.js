@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import { Form, Icon, Input, Button } from 'antd'
 
 import AuthWrapper from './auth.style'
 import authAction from '../../redux/auth/actions'

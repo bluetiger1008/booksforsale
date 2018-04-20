@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Row, Col, Layout, Menu, Dropdown, Icon } from 'antd'
+import { Layout, Menu, Dropdown, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
 
 import { HeaderWrapper, MenuWrapper } from './header.style'
 import avatar from '../../assets/images/avatar.png'
+import authAction from '../../redux/auth/actions'
 
-const { Header, Footer, Sider, Content } = Layout
+const { Header } = Layout
+const { logout } = authAction
 
 class HeaderComponent extends Component {
+	logout = () => {
+		this.props.logout()
+	}
+
 	render() {
 		const { isLoggedIn } = this.props;
 
@@ -26,7 +32,7 @@ class HeaderComponent extends Component {
 			      <a><FontAwesome name="cog" />Settings</a>
 			    </Menu.Item>
 			    <Menu.Divider />
-			    <Menu.Item key="3">
+			    <Menu.Item key="3" onClick={this.logout}>
 			    	<a><FontAwesome name="power-off" />Logout</a>
 			    </Menu.Item>
 			  </Menu>
@@ -46,7 +52,7 @@ class HeaderComponent extends Component {
 		      				<div>
 		      					<img src={avatar} alt="avatar" />
 				      			<Dropdown overlay={menu} trigger={['click']}>
-									    <a className="ant-dropdown-link" href="#">
+									    <a className="ant-dropdown-link">
 									      Tedi Kurniadi <Icon type="down" />
 									    </a>
 									  </Dropdown>
@@ -82,4 +88,6 @@ class HeaderComponent extends Component {
 
 export default connect(state => ({
   isLoggedIn: state.Auth.get('idToken') !== null
-}))(HeaderComponent)
+	}),
+	{ logout }
+)(HeaderComponent)
