@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Row, Col, Layout, Menu, Dropdown, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import FontAwesome from 'react-fontawesome'
@@ -10,6 +11,8 @@ const { Header, Footer, Sider, Content } = Layout
 
 class HeaderComponent extends Component {
 	render() {
+		const { isLoggedIn } = this.props;
+
 		const menu = (
 			<MenuWrapper>
 			  <Menu>
@@ -39,12 +42,25 @@ class HeaderComponent extends Component {
 		      			<p><FontAwesome name="book" />BookforSale.io</p>
 		      		</div>
 		      		<div className="user">
-		      			<img src={avatar} alt="avatar" />
-		      			<Dropdown overlay={menu} trigger={['click']}>
-							    <a className="ant-dropdown-link" href="#">
-							      Tedi Kurniadi <Icon type="down" />
-							    </a>
-							  </Dropdown>
+		      			{ isLoggedIn ? (
+		      				<div>
+		      					<img src={avatar} alt="avatar" />
+				      			<Dropdown overlay={menu} trigger={['click']}>
+									    <a className="ant-dropdown-link" href="#">
+									      Tedi Kurniadi <Icon type="down" />
+									    </a>
+									  </Dropdown>
+		      				</div>
+		      			) : (
+		      				<div className="auth-buttons">
+			      				<Link to="/login">
+				      				Login
+				      			</Link>
+				      			<Link to="/signup">
+				      				Signup
+				      			</Link>
+				      		</div>
+		      			)}
 		      		</div>
 		      	</div>
 		      	<div className="nav">
@@ -64,4 +80,6 @@ class HeaderComponent extends Component {
 	}
 }
 
-export default HeaderComponent
+export default connect(state => ({
+  isLoggedIn: state.Auth.get('idToken') !== null
+}))(HeaderComponent)

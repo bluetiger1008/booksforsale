@@ -25,9 +25,14 @@ const HeaderWrapper = styled.div`
 					border-radius: 50%;
 					margin-right: 10px;
 				}
-				.ant-dropdown-link {
+				a {
 					color: #79879A;
 					font-size: 16px;
+				}
+				.auth-buttons {
+					a {
+						margin: 0 15px;
+					}
 				}
 			}
 		}
