@@ -1,15 +1,15 @@
 import React from 'react'
 import {Route} from 'react-router'
-import {Switch, HashRouter} from 'react-router-dom'
+import {Switch, Router} from 'react-router-dom'
 
 import Homepage from './components/Homepage/homepage'
 import RegisterAccount from './components/RegisterAccount/registerAccount'
 import Login from './components/Auth/login'
 import Signup from './components/Auth/signup'
 
-const PublicRoutes = () => {
+const PublicRoutes = ({ history }) => {
     return (
-        <HashRouter>
+        <Router history={history}>
             <div>
                 <Switch>
                     <Route exact path={'/'} component={Homepage}/>
@@ -18,7 +18,7 @@ const PublicRoutes = () => {
                     <Route path={'/registerAccount'} component={RegisterAccount}/>
                 </Switch>
             </div>
-        </HashRouter>
+        </Router>
     )
 };
 

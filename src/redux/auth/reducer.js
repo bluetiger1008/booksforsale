@@ -3,8 +3,8 @@ import { getToken } from '../../helpers/utility'
 import actions from './actions'
 
 const initState = new Map({
-  idToken: null,
-  userEmail: '',
+  access_token: null,
+  refresh_token: null,
   loginError: false
 })
 
@@ -14,8 +14,8 @@ export default function authReducer(state = initState.merge(getToken()), action)
       return state.set('loginError', false)
     case actions.LOGIN_SUCCESS:
       return state
-        .set('idToken', action.token)
-        .set('userEmail', action.user.email)
+        .set('access_token', action.access_token)
+        .set('refresh_token', action.refresh_token)
         .set('loginError', false)
     case actions.LOGIN_ERROR:
       return state.set('loginError', true)

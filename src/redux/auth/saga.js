@@ -13,12 +13,14 @@ export function* loginRequest() {
 
     try {
       user = yield call(loginAPI, authData)
+      console.log(user)
       yield put({
         type: actions.LOGIN_SUCCESS,
-        token: user.token,
-        user: user
+        access_token: user.access_token,
+        refresh_token: user.refresh_token,
       })
       
+      yield put(push('/'))
     } catch (error) {
       yield put({ type: actions.LOGIN_ERROR })
     }
@@ -44,8 +46,8 @@ export function* signupRequest() {
 
 export function* loginSuccess() {
   yield takeEvery(actions.LOGIN_SUCCESS, function*(payload) {
-    yield localStorage.setItem('id_token', payload.token)
-    yield localStorage.setItem('user_email', payload.user.email)
+    yield localStorage.setItem('access_token', payload.access_token)
+    yield localStorage.setItem('refresh_token', payload.refresh_token)
   })
 }
 

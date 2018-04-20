@@ -13,6 +13,7 @@ const { logout } = authAction
 
 class HeaderComponent extends Component {
 	logout = () => {
+		console.log('logout')
 		this.props.logout()
 	}
 
@@ -32,8 +33,8 @@ class HeaderComponent extends Component {
 			      <a><FontAwesome name="cog" />Settings</a>
 			    </Menu.Item>
 			    <Menu.Divider />
-			    <Menu.Item key="3" onClick={this.logout}>
-			    	<a><FontAwesome name="power-off" />Logout</a>
+			    <Menu.Item key="3">
+			    	<a onClick={this.logout}><FontAwesome name="power-off" />Logout</a>
 			    </Menu.Item>
 			  </Menu>
 			</MenuWrapper>
@@ -87,7 +88,7 @@ class HeaderComponent extends Component {
 }
 
 export default connect(state => ({
-  isLoggedIn: state.Auth.get('idToken') !== null
+  isLoggedIn: state.Auth.get('access_token') !== null
 	}),
 	{ logout }
 )(HeaderComponent)
