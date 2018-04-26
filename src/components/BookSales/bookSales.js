@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Row, Col, Layout, Menu, Dropdown, Button, Icon, message } from 'antd'
+import { Tabs, Row, Col, Layout, Menu, Dropdown, Button, Icon, message } from 'antd'
 import FontAwesome from 'react-fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import HeaderComponent from '../Header/header'
 import BookSalesWrapper from './bookSales.style'
 
-const { Footer, Content } = Layout;
+const { Footer, Content } = Layout
+const TabPane = Tabs.TabPane
 const data = [{
 	"data_format": "booksforsale_template_v1",
 	"miles_from_location": 10,
@@ -54,6 +55,10 @@ class BookSales extends Component {
 		message.info('Click on menu item.');
 		console.log('click', e);
 	}
+	
+	callback = (key) => {
+		console.log(key);
+	}
 
 	render() {
 		const menu = (
@@ -74,7 +79,7 @@ class BookSales extends Component {
 								<Col span={24}>
 									<div className="booksales-header">
 										<h3>Book sales in Illinois</h3>
-										<Dropdown overlay={menu}>
+										<Dropdown overlay={menu} trigger={['click']}>
 											<Button style={{ marginLeft: 8 }}>
 												Button <Icon type="down" />
 											</Button>
@@ -84,13 +89,12 @@ class BookSales extends Component {
 								<Col span={16}>
 									{ data.map((item, idx) => {
 										return (
-											<div className="sale-box">
+											<div className="sale-box" key={idx}>
 												<div className="sale-header">
 													<p className="miles">{item.miles_from_location} miles from location</p>
 													<div className="summaries">
 														<div className="summary">
 															<FontAwesome name="map-marker" />
-															<FontAwesomeIcon icon="spinner"/>
 															<p>{item.organization_name} Library <br/> {item.address} <br/> {item.phone_number}</p>
 														</div>
 														<div className="summary">
@@ -109,32 +113,48 @@ class BookSales extends Component {
 													</div>
 												</div>
 												<div className="sale-content">
-													<ul>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon"/> 25,000 books</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon" /> 80% donated</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon" /> 55% hardcover</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon" /> Sorted</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon" /> Paperbacks .25</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon" /> Hardcovers .50</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="check" className="icon" /> Not ‘picked over’</p>
-														</li>
-														<li>
-															<p><FontAwesomeIcon icon="flag" className="icon" /> No buyer restrictions</p>
-														</li>
-													</ul>
+													<div className="main-content">
+														<ul>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon"/> 25,000 books</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon" /> 80% donated</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon" /> 55% hardcover</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon" /> Sorted</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon" /> Paperbacks .25</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon" /> Hardcovers .50</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="check" className="icon" /> Not ‘picked over’</p>
+															</li>
+															<li>
+																<p><FontAwesomeIcon icon="flag" className="icon" /> No buyer restrictions</p>
+															</li>
+														</ul>
+														<a className="show-more">More <Icon type="down" /></a>
+													</div>
+													<div className="additional-content">
+														<Tabs defaultActiveKey="1" onChange={this.callback}>
+															<TabPane tab="Additional Info" key="1">
+																<p>Hayner Library, 327 State St <br/> 618-123-4567</p>
+																<p>Info about any special events held at the same as the sale</p>
+																<p>Detailed info about picked over books or other  information submitted from textarea when registering event</p>
+															</TabPane>
+															<TabPane tab="Special Preview" key="2">Content of Tab Pane 2</TabPane>
+															<TabPane tab="Related Events" key="3">Content of Tab Pane 3</TabPane>
+															<TabPane tab="Organization Info" key="4">Content of Tab Pane 3</TabPane>
+															<TabPane tab="Contact" key="5">Content of Tab Pane 3</TabPane>
+														</Tabs>
+													</div>
 												</div>
 											</div>
 										)

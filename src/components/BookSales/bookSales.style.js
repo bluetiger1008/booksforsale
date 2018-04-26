@@ -57,25 +57,55 @@ const BookSalesWrapper = styled.div`
     }
     .sale-content {
       padding: 18px;
-      ul {
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        height: 105px;
-        margin: 0;
-        align-content: flex-start;
-        flex-direction: column;
-        li {
-          width: 30%;
-          p {
-            margin: 0;
-            line-height: 35px;
-            .icon {
-              color: #00fd00;
+      .main-content {
+        position: relative;
+        margin-bottom: 20px;
+        ul {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          height: 105px;
+          margin: 0;
+          align-content: flex-start;
+          flex-direction: column;
+          li {
+            width: 30%;
+            p {
+              margin: 0;
+              line-height: 35px;
+              .icon {
+                color: #00fd00;
+              }
             }
           }
         }
+        a.show-more {
+          position: absolute;
+          right: 0px;
+          bottom: 0px;
+        }
+      }
+    }
+    .ant-tabs-nav-container {
+      line-height: 1;
+    }
+    
+    .ant-tabs-nav .ant-tabs-tab {
+      margin: 0;
+      &:hover {
+        color: rgba(0, 0, 0, 0.65);
+      }
+    }
+    
+    .ant-tabs-nav .ant-tabs-tab-active {
+      color: white;
+      font-weight: 500;
+      background: #1890ff;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      &:hover {
+        color: white !important;
       }
     }
   }
