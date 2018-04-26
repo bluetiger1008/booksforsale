@@ -64,11 +64,16 @@ const BookSalesWrapper = styled.div`
         flex-wrap: wrap;
         height: 105px;
         margin: 0;
+        align-content: flex-start;
+        flex-direction: column;
         li {
           width: 30%;
           p {
             margin: 0;
             line-height: 35px;
+            .icon {
+              color: #00fd00;
+            }
           }
         }
       }
