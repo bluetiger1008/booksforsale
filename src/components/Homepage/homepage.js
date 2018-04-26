@@ -107,35 +107,35 @@ class Homepage extends Component {
 		return (
 			<HomepageWrapper>
 				<Layout>
-		      <HeaderComponent />
-		      <Content>
-		      	<div className="container">
-			      	<Row gutter={32}>
-					      <Col span={12}>
-					      	<h2>Click to find estate and books sales now</h2>
-					      	<ReactHighmaps config={config} ref="chart"></ReactHighmaps>
-					      </Col>
-					      <Col span={12}>
-					      	<h2>Subscribe our newsletter for your benefits</h2>
-					      	<p>Rapidiously iterate interoperable “outside the box” thinking and low-risk high-yield potentialities.
-					      	Interactively maximize accurate synergy and state of the art potentialities.</p>
-					      	<ul>
-					      		<li><FontAwesome name="check" /><p>Professionally aggregate economically sound action items</p></li>
-					      		<li><FontAwesome name="check" /><p>Conveniently extend revolutionary opportunities before premier materials.</p></li>
-					      		<li><FontAwesome name="check" /><p>Globally incentivize installed base benefits whereas quality customer</p></li>
-					      	</ul>
-					      	<form>
-						      	<input type="email" placeholder="Give us your best email here…"/>
-						      	<button>HELP ME MAKE MONEY!</button>
-						      </form>
-					      </Col>
-					    </Row>
-					  </div>
-		      </Content>
-		      <Footer>
-		      	<p>Copyright BooksForSale 2018. All Rights Reserved.</p>
-		      </Footer>
-		    </Layout>
+                    <HeaderComponent />
+                    <Content>
+                        <div className="container">
+                            <Row gutter={32}>
+                                <Col span={12}>
+                                    <h2>Click to find estate and books sales now</h2>
+                                    <ReactHighmaps config={config} ref="chart"></ReactHighmaps>
+                                </Col>
+                                <Col span={12}>
+                                    <h2>Subscribe our newsletter for your benefits</h2>
+                                    <p>Rapidiously iterate interoperable “outside the box” thinking and low-risk high-yield potentialities.
+                                    Interactively maximize accurate synergy and state of the art potentialities.</p>
+                                    <ul>
+                                        <li><FontAwesome name="check" /><p>Professionally aggregate economically sound action items</p></li>
+                                        <li><FontAwesome name="check" /><p>Conveniently extend revolutionary opportunities before premier materials.</p></li>
+                                        <li><FontAwesome name="check" /><p>Globally incentivize installed base benefits whereas quality customer</p></li>
+                                    </ul>
+                                    <form>
+                                        <input type="email" placeholder="Give us your best email here…"/>
+                                        <button>HELP ME MAKE MONEY!</button>
+                                    </form>
+                                </Col>
+                                </Row>
+                            </div>
+                    </Content>
+                    <Footer>
+                        <p>Copyright BooksForSale 2018. All Rights Reserved.</p>
+                    </Footer>
+                </Layout>
 			</HomepageWrapper>
 		);
 	}
