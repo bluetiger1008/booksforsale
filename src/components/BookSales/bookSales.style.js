@@ -37,7 +37,7 @@ const BookSalesWrapper = styled.div`
             color: white;
             display: flex;
             width: 30%;
-            span {
+            .icon {
               line-height: 30px;
               margin-right: 12px;
               font-size: 25px;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Tabs, Row, Col, Layout, Menu, Dropdown, Button, Icon, message } from 'antd'
-import FontAwesome from 'react-fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import HeaderComponent from '../Header/header'
@@ -94,15 +93,15 @@ class BookSales extends Component {
 													<p className="miles">{item.miles_from_location} miles from location</p>
 													<div className="summaries">
 														<div className="summary">
-															<FontAwesome name="map-marker" />
+														<FontAwesomeIcon icon="map-marker-alt" className="icon"/>
 															<p>{item.organization_name} Library <br/> {item.address} <br/> {item.phone_number}</p>
 														</div>
 														<div className="summary">
-															<FontAwesome name="calendar-o" />
+															<FontAwesomeIcon icon="calendar" className="icon"/>
 															<p>May 11 - 12 <br/> Oct 12 - 13</p>
 														</div>
 														<div className="summary">
-														<FontAwesome name="clock-o" />
+															<FontAwesomeIcon icon="clock" className="icon"/>
 															<p>Mon: 10-8</p>
 														</div>
 													</div>
@@ -147,7 +146,7 @@ class BookSales extends Component {
 															<TabPane tab="Additional Info" key="1">
 																<p>Hayner Library, 327 State St <br/> 618-123-4567</p>
 																<p>Info about any special events held at the same as the sale</p>
-																<p>Detailed info about picked over books or other  information submitted from textarea when registering event</p>
+																  <p>Detailed info about picked over books or other  information submitted from textarea when registering event</p>
 															</TabPane>
 															<TabPane tab="Special Preview" key="2">Content of Tab Pane 2</TabPane>
 															<TabPane tab="Related Events" key="3">Content of Tab Pane 3</TabPane>
