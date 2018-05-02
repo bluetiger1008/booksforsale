@@ -95,6 +95,14 @@ class BookSales extends Component {
 		showMoreIndex: []
 	}
 
+	componentDidMount() {
+		const { showMoreIndex} = this.state
+
+		data.map((item, idx) => {
+			showMoreIndex.push(false)
+		})
+	}
+
 	handleMenuClick = (e) => {
 		message.info('Click on menu item.');
 		console.log('click', e);
@@ -106,13 +114,10 @@ class BookSales extends Component {
 
 	showMore = (idx) => {
 		this.setState((prevState) => {
-			console.log(idx, _.indexOf(prevState.showMoreIndex, idx))
-			if(_.indexOf(prevState.showMoreIndex, idx) === -1) {
-				prevState.showMoreIndex.push(idx)
+			if(prevState.showMoreIndex[idx] === false) {
+				prevState.showMoreIndex[idx] = true
 			} else {
-				_.remove(prevState.showMoreIndex, function(n) {
-					return n == idx
-				})
+				prevState.showMoreIndex[idx] = false
 			}
 			
 			return prevState
@@ -205,7 +210,7 @@ class BookSales extends Component {
 														</ul>
 														<a className="show-more" onClick={this.showMore.bind(undefined, idx)}>More <Icon type="down" /></a>
 													</div>
-													{ showMoreIndex[idx] === idx &&
+													{ showMoreIndex[idx] === true &&
 														<div className="additional-content" >
 															<Tabs defaultActiveKey="1" onChange={this.callback}>
 																<TabPane tab="Additional Info" key="1">
