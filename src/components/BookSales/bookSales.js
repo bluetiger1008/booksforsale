@@ -208,7 +208,11 @@ class BookSales extends Component {
 																<p><FontAwesomeIcon icon="flag" className="icon" /> No buyer restrictions</p>
 															</li>
 														</ul>
-														<a className="show-more" onClick={this.showMore.bind(undefined, idx)}>More <Icon type="down" /></a>
+														{ showMoreIndex[idx] === true ? (
+															<a className="show-more" onClick={this.showMore.bind(undefined, idx)}>Less <Icon type="up" /></a>
+														) : (
+															<a className="show-more" onClick={this.showMore.bind(undefined, idx)}>More <Icon type="down" /></a>
+														)}
 													</div>
 													{ showMoreIndex[idx] === true &&
 														<div className="additional-content" >
